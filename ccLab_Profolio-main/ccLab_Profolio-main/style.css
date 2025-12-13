@@ -1,0 +1,217 @@
+/* ========== Global ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f6f4ef;
+  color: #111;
+  font-family: ui-sans-serif, system-ui, -apple-system,
+               Segoe UI, Roboto, Helvetica, Arial;
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 70px 22px 90px;
+}
+
+/* ========== Typography ========== */
+h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 600;
+  margin: 0 0 18px 0;
+}
+
+h2 {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 42px 0 14px;
+  color: rgba(0,0,0,0.65);
+}
+
+p {
+  margin: 0 0 16px 0;
+  max-width: 68ch;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.8);
+}
+
+/* ========== Navigation ========== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.78);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:hover {
+  color: #000;
+  border-bottom-color: rgba(0,0,0,0.35);
+}
+
+/* ========== Project List (Index) ========== */
+.project-list {
+  padding: 0;
+  margin: 0;
+}
+
+.project-list li {
+  list-style: none;
+}
+
+/* 每一行 */
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+.project-list li:last-child .project-row {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+/* 左侧：项目主链接 */
+.project-main {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  padding: 16px 0;
+  text-decoration: none;
+  color: rgba(0,0,0,0.86);
+  transition: transform 140ms ease, color 140ms ease;
+}
+
+.project-main:hover {
+  color: #000;
+  transform: translateX(4px);
+}
+
+/* 左列：Project X */
+.col-left {
+  color: rgba(0,0,0,0.65);
+}
+
+/* 右列：项目名 */
+.col-right {
+  color: rgba(0,0,0,0.9);
+}
+
+/* 右侧：外部链接箭头 */
+.project-external {
+  padding-left: 16px;
+  font-size: 18px;
+  text-decoration: none;
+  color: rgba(0,0,0,0.45);
+}
+
+.project-external:hover {
+  color: #000;
+}
+
+/* ========== Sketch Embeds ========== */
+iframe {
+  width: 100%;
+  max-width: 900px;
+  height: 520px;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 14px;
+  background: #fff;
+  margin-top: 14px;
+}
+
+#sketch-container {
+  margin-top: 14px;
+}
+
+#sketch-container canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  main {
+    padding: 56px 18px 72px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  iframe {
+    height: 460px;
+  }
+
+  .project-main {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+/* ===== Cursor FX (keep system cursor visible) ===== */
+.cursor-fx {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none; /* 不挡点击 */
+  transform: translate3d(0,0,0);
+}
+
+/* 单个小球（跟随、滞后） */
+.cursor-fx__dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  background: #7b1e1e;
+}
+
+/* 右上角“实心方框 + DISCOVER” */
+.cursor-fx__label {
+  position: absolute;
+  left: 12px;   /* 在小球右侧 */
+  top: -12px;   /* 在小球上方 */
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 0; /* 实心方框感 */
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  white-space: nowrap;
+}
+
+/* hover 到交互元素时显示 */
+.cursor-fx.is-active .cursor-fx__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 移动端不显示（可选但推荐） */
+@media (hover: none) and (pointer: coarse){
+  .cursor-fx { display: none; }
+}
+
+
