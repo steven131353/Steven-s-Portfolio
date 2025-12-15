@@ -14,7 +14,7 @@ body {
 main {
   max-width: 980px;
   margin: 0 auto;
-  padding: 70px 22px 90px;
+  padding: 40px 22px 90px;
 }
 
 /* ========== Typography ========== */
@@ -214,4 +214,99 @@ iframe {
   .cursor-fx { display: none; }
 }
 
+html { scroll-behavior: smooth; }
 
+/* ===== Cover / Hero ===== */
+.hero{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content{
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 8vh;
+  padding-bottom: 90px; /* 给底部 scroll 留空间 */
+}
+
+.hero-kicker{
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 10px;
+}
+
+.hero-title{
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: 1.02;
+  margin: 0 0 14px 0;
+}
+
+.hero-subtitle{
+  max-width: 55ch;
+  font-size: 18px;
+  color: rgba(0,0,0,0.75);
+  margin-bottom: 22px;
+}
+
+/* ===== Horizontal image strip ===== */
+.hero-strip{
+  width: min(980px, 100%);
+  margin-top: 18px;
+  padding-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.strip-track{
+  display: flex;
+  gap: 14px;
+}
+
+.hero-strip img{
+  height: 120px;
+  width: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+  scroll-snap-align: start;
+}
+
+/* optional: nicer scrollbar on WebKit */
+.hero-strip::-webkit-scrollbar{
+  height: 8px;
+}
+.hero-strip::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.18);
+  border-radius: 999px;
+}
+
+/* ===== Scroll button pinned near bottom of hero ===== */
+.hero-scroll{
+  position: absolute;
+  left: 0;
+  bottom: 64px; /* 靠近页面底部 */
+  display: inline-block;
+
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(0,0,0,0.75);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  padding-bottom: 2px;
+}
+
+.hero-scroll:hover{
+  color:#000;
+  border-bottom-color: rgba(0,0,0,0.5);
+}
+
+/* when jump to works */
+.work{ padding-top: 40px; }
