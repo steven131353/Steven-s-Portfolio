@@ -5,7 +5,9 @@
 
 body {
   margin: 0;
-  background: #121212;
+  /* 修改为深空黑背景 */
+  background: #0a0a0a; 
+  /* 修改文字为白色 */
   color: #ffffff;
   font-family: ui-sans-serif, system-ui, -apple-system,
                Segoe UI, Roboto, Helvetica, Arial;
@@ -23,6 +25,7 @@ h1 {
   line-height: 1.05;
   font-weight: 600;
   margin: 0 0 18px 0;
+  color: #ffffff;
 }
 
 h2 {
@@ -30,14 +33,16 @@ h2 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 42px 0 14px;
-  color: rgba(0,0,0,0.65);
+  /* 辅助标题使用淡灰色，增加层级感 */
+  color: rgba(255, 255, 255, 0.5); 
 }
 
 p {
   margin: 0 0 16px 0;
   max-width: 68ch;
   line-height: 1.7;
-  color: rgba(0,0,0,0.8);
+  /* 正文使用高亮度灰色，保护视力且清晰 */
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ========== Navigation ========== */
@@ -51,17 +56,19 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: rgba(0,0,0,0.78);
+  /* 导航链接颜色 */
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: #000;
-  border-bottom-color: rgba(0,0,0,0.35);
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.4);
 }
 
 /* ========== Project List (Index) ========== */
@@ -74,16 +81,16 @@ nav a:hover {
   list-style: none;
 }
 
-/* 每一行 */
+/* 每一行：边框改为深色透明白 */
 .project-row {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  border-top: 1px solid rgba(0,0,0,0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-list li:last-child .project-row {
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 左侧：项目主链接 */
@@ -93,23 +100,23 @@ nav a:hover {
   align-items: center;
   padding: 16px 0;
   text-decoration: none;
-  color: rgba(0,0,0,0.86);
+  color: rgba(255, 255, 255, 0.8);
   transition: transform 140ms ease, color 140ms ease;
 }
 
 .project-main:hover {
-  color: #000;
+  color: #ffffff;
   transform: translateX(4px);
 }
 
 /* 左列：Project X */
 .col-left {
-  color: rgba(0,0,0,0.65);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* 右列：项目名 */
 .col-right {
-  color: rgba(0,0,0,0.9);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* 右侧：外部链接箭头 */
@@ -117,11 +124,11 @@ nav a:hover {
   padding-left: 16px;
   font-size: 18px;
   text-decoration: none;
-  color: rgba(0,0,0,0.45);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .project-external:hover {
-  color: #000;
+  color: #ffffff;
 }
 
 /* ========== Sketch Embeds ========== */
@@ -129,9 +136,10 @@ iframe {
   width: 100%;
   max-width: 900px;
   height: 520px;
-  border: 1px solid rgba(0,0,0,0.18);
+  /* 边框和背景适配深色 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
-  background: #fff;
+  background: #151515;
   margin-top: 14px;
 }
 
@@ -143,9 +151,10 @@ iframe {
   display: block;
   max-width: 100%;
   height: auto;
-  border: 1px solid rgba(0,0,0,0.18);
+  /* Canvas 外框调整 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
-  background: #fff;
+  background: #000;
 }
 
 /* ========== Responsive ========== */
@@ -167,49 +176,46 @@ iframe {
   }
 }
 
-/* ===== Cursor FX (keep system cursor visible) ===== */
+/* ===== Cursor FX ===== */
 .cursor-fx {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99999;
-  pointer-events: none; /* 不挡点击 */
+  pointer-events: none;
   transform: translate3d(0,0,0);
 }
 
-/* 单个小球（跟随、滞后） */
 .cursor-fx__dot {
   width: 15px;
   height: 15px;
   border-radius: 999px;
-  background: #7b1e1e;
+  /* 小球颜色建议保持亮色或鲜艳色，在黑底上更醒目 */
+  background: #4b0fff; 
 }
 
-/* 右上角“实心方框 + DISCOVER” */
 .cursor-fx__label {
   position: absolute;
-  left: 12px;   /* 在小球右侧 */
-  top: -12px;   /* 在小球上方 */
-  background: #111;
-  color: #fff;
+  left: 12px;
+  top: -12px;
+  background: #ffffff; /* 标签改为白底黑字，形成反差 */
+  color: #000000;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 8px 10px;
-  border-radius: 0; /* 实心方框感 */
+  border-radius: 0;
   opacity: 0;
   transform: translateY(2px);
   transition: opacity 120ms ease, transform 120ms ease;
   white-space: nowrap;
 }
 
-/* hover 到交互元素时显示 */
 .cursor-fx.is-active .cursor-fx__label {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 移动端不显示（可选但推荐） */
 @media (hover: none) and (pointer: coarse){
   .cursor-fx { display: none; }
 }
@@ -230,13 +236,13 @@ html { scroll-behavior: smooth; }
   flex-direction: column;
   justify-content: center;
   padding-top: 8vh;
-  padding-bottom: 90px; /* 给底部 scroll 留空间 */
+  padding-bottom: 90px;
 }
 
 .hero-kicker{
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.6);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
 }
 
@@ -244,12 +250,13 @@ html { scroll-behavior: smooth; }
   font-size: clamp(56px, 7vw, 92px);
   line-height: 1.02;
   margin: 0 0 14px 0;
+  color: #ffffff;
 }
 
 .hero-subtitle{
   max-width: 55ch;
   font-size: 18px;
-  color: rgba(0,0,0,0.75);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 22px;
 }
 
@@ -273,40 +280,39 @@ html { scroll-behavior: smooth; }
   height: 120px;
   width: auto;
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.12);
-  background: #fff;
+  /* 图片边框改为深色调 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
   scroll-snap-align: start;
 }
 
-/* optional: nicer scrollbar on WebKit */
+/* 滚动条样式适配深色模式 */
 .hero-strip::-webkit-scrollbar{
   height: 8px;
 }
 .hero-strip::-webkit-scrollbar-thumb{
-  background: rgba(0,0,0,0.18);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 999px;
 }
 
-/* ===== Scroll button pinned near bottom of hero ===== */
+/* ===== Scroll button ===== */
 .hero-scroll{
   position: absolute;
   left: 0;
-  bottom: 64px; /* 靠近页面底部 */
+  bottom: 64px;
   display: inline-block;
-
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(0,0,0,0.75);
-  border-bottom: 1px solid rgba(0,0,0,0.25);
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 2px;
 }
 
 .hero-scroll:hover{
-  color:#000;
-  border-bottom-color: rgba(0,0,0,0.5);
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
-/* when jump to works */
 .work{ padding-top: 40px; }
