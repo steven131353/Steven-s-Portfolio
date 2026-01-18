@@ -19,7 +19,7 @@ let started = false;
 // ✅ 小一点 = 更明显滞后（0.10~0.22 都可以）
 const EASE = 0.05;
 
-// ✅ 视觉偏移：往左上
+// ✅ 
 const VISUAL_OFFSET_X = -6;
 const VISUAL_OFFSET_Y = -6;
 
