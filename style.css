@@ -1,13 +1,11 @@
 /* ========== Global ========== */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  /* 修改为深空黑背景 */
-  background: #0a0a0a; 
-  /* 修改文字为白色 */
+  background: #0a0a0a;
   color: #ffffff;
   font-family: ui-sans-serif, system-ui, -apple-system,
                Segoe UI, Roboto, Helvetica, Arial;
@@ -33,15 +31,13 @@ h2 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 42px 0 14px;
-  /* 辅助标题使用淡灰色，增加层级感 */
-  color: rgba(255, 255, 255, 0.5); 
+  color: rgba(255, 255, 255, 0.5);
 }
 
 p {
   margin: 0 0 16px 0;
   max-width: 68ch;
   line-height: 1.7;
-  /* 正文使用高亮度灰色，保护视力且清晰 */
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -56,14 +52,13 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  /* 导航链接颜色 */
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 nav a:hover {
@@ -72,16 +67,9 @@ nav a:hover {
 }
 
 /* ========== Project List (Index) ========== */
-.project-list {
-  padding: 0;
-  margin: 0;
-}
+.project-list { padding: 0; margin: 0; }
+.project-list li { list-style: none; }
 
-.project-list li {
-  list-style: none;
-}
-
-/* 每一行：边框改为深色透明白 */
 .project-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -93,7 +81,6 @@ nav a:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 左侧：项目主链接 */
 .project-main {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -109,17 +96,9 @@ nav a:hover {
   transform: translateX(4px);
 }
 
-/* 左列：Project X */
-.col-left {
-  color: rgba(255, 255, 255, 0.45);
-}
+.col-left { color: rgba(255, 255, 255, 0.45); }
+.col-right { color: rgba(255, 255, 255, 0.95); }
 
-/* 右列：项目名 */
-.col-right {
-  color: rgba(255, 255, 255, 0.95);
-}
-
-/* 右侧：外部链接箭头 */
 .project-external {
   padding-left: 16px;
   font-size: 18px;
@@ -127,56 +106,31 @@ nav a:hover {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.project-external:hover {
-  color: #ffffff;
-}
+.project-external:hover { color: #ffffff; }
 
-/* ========== Sketch Embeds ========== */
+/* ========== Sketch Embeds (Project Pages) ========== */
 iframe {
   width: 100%;
   max-width: 900px;
   height: 520px;
-  /* 边框和背景适配深色 */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   background: #151515;
   margin-top: 14px;
 }
 
-#sketch-container {
-  margin-top: 14px;
-}
+#sketch-container { margin-top: 14px; }
 
 #sketch-container canvas {
   display: block;
   max-width: 100%;
   height: auto;
-  /* Canvas 外框调整 */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   background: #000;
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 600px) {
-  main {
-    padding: 56px 18px 72px;
-  }
-
-  h1 {
-    font-size: 38px;
-  }
-
-  iframe {
-    height: 460px;
-  }
-
-  .project-main {
-    grid-template-columns: 110px 1fr;
-  }
-}
-
-/* ===== Cursor FX ===== */
+/* ========== Cursor FX ========== */
 .cursor-fx {
   position: fixed;
   top: 0;
@@ -190,15 +144,14 @@ iframe {
   width: 15px;
   height: 15px;
   border-radius: 999px;
-  /* 小球颜色建议保持亮色或鲜艳色，在黑底上更醒目 */
-  background: #4b0fff; 
+  background: #4b0fff;
 }
 
 .cursor-fx__label {
   position: absolute;
   left: 12px;
   top: -12px;
-  background: #ffffff; /* 标签改为白底黑字，形成反差 */
+  background: #ffffff;
   color: #000000;
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -220,9 +173,7 @@ iframe {
   .cursor-fx { display: none; }
 }
 
-html { scroll-behavior: smooth; }
-
-/* ===== Cover / Hero ===== */
+/* ========== Cover / Hero (Index) ========== */
 .hero{
   min-height: 100vh;
   display: flex;
@@ -260,7 +211,7 @@ html { scroll-behavior: smooth; }
   margin-bottom: 22px;
 }
 
-/* ===== Horizontal image strip ===== */
+/* horizontal image strip */
 .hero-strip{
   width: min(980px, 100%);
   margin-top: 18px;
@@ -271,31 +222,24 @@ html { scroll-behavior: smooth; }
   -webkit-overflow-scrolling: touch;
 }
 
-.strip-track{
-  display: flex;
-  gap: 14px;
-}
+.strip-track{ display: flex; gap: 14px; }
 
 .hero-strip img{
   height: 120px;
   width: auto;
   border-radius: 14px;
-  /* 图片边框改为深色调 */
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #1a1a1a;
   scroll-snap-align: start;
 }
 
-/* 滚动条样式适配深色模式 */
-.hero-strip::-webkit-scrollbar{
-  height: 8px;
-}
+.hero-strip::-webkit-scrollbar{ height: 8px; }
 .hero-strip::-webkit-scrollbar-thumb{
   background: rgba(255, 255, 255, 0.2);
   border-radius: 999px;
 }
 
-/* ===== Scroll button ===== */
+/* scroll button */
 .hero-scroll{
   position: absolute;
   left: 0;
@@ -317,7 +261,7 @@ html { scroll-behavior: smooth; }
 
 .work{ padding-top: 40px; }
 
-/* ===== Project 8: 9-canvas grid ===== */
+/* ========== Project 8: 9-image grid (click to p5.js) ========== */
 .grid-9{
   margin-top: 14px;
   display: grid;
@@ -325,28 +269,40 @@ html { scroll-behavior: smooth; }
   gap: 14px;
 }
 
-/* 每个格子 */
-.sketch-cell{
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  background: #000;
-  padding: 10px;
-}
-
-/* 让 canvas 适配格子宽度（高度按比例显示） */
-.sketch-cell canvas{
+.img-cell{
   display: block;
-  width: 100% !important;
-  height: auto !important;
-  border: 0;
-  border-radius: 10px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: #000;
+  text-decoration: none;
 }
 
-/* 手机端：3列 -> 1列 / 2列更舒服 */
+.img-cell img{
+  display: block;
+  width: 100%;
+  height: 220px;      /* 需要更方/更长就改这里 */
+  object-fit: cover;
+}
+
+.img-cell:hover{
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  main { padding: 56px 18px 72px; }
+  h1 { font-size: 38px; }
+  iframe { height: 460px; }
+  .project-main { grid-template-columns: 110px 1fr; }
+}
+
 @media (max-width: 820px){
   .grid-9{ grid-template-columns: repeat(2, 1fr); }
+  .img-cell img{ height: 200px; }
 }
+
 @media (max-width: 520px){
   .grid-9{ grid-template-columns: 1fr; }
+  .img-cell img{ height: 220px; }
 }
