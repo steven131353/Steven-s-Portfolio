@@ -306,3 +306,14 @@ iframe {
   .grid-9{ grid-template-columns: 1fr; }
   .img-cell img{ height: 220px; }
 }
+h2 a {
+  color: inherit;          /* 跟标题颜色一样 */
+}
+
+h2 a:visited {
+  color: inherit;          /* 防止变紫色 */
+}
+
+h2 a:hover {
+  text-decoration: underline; /* hover 再加效果 */
+}

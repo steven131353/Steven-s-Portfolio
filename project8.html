@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 8 – Nine Links</title>
+  <title>Project 8 - My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
 </head>
 
 <body>
@@ -17,49 +18,33 @@
       </ul>
     </nav>
 
-    <h1>Project 8</h1>
-    <p>Click an image to open the corresponding p5.js sketch.</p>
+    <h1>Fonts Poster</h1>
 
-    <!-- 九宫格（每格 = 一张图 + 一个外链） -->
-    <div class="grid-9" aria-label="Nine images linking to p5.js sketches">
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/gKAob-R46" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 120519.png" alt="Project 8 sketch 1 preview" loading="lazy">
-      </a>
+    <h2>
+  <a href="https://editor.p5js.org/1503332911st/collections/LKE7agm3a" target="_blank">
+    P5.JS LINK
+  </a>
+</h2>
+    <div id="sketch-container"></div>
 
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/AKCyrBFWi" target="_blank" rel="noopener noreferrer">
-        <img src="image\屏幕截图 2026-02-26 120626.png" alt="Project 8 sketch 2 preview" loading="lazy">
-      </a>
+    <h2>SCRIBBLED</h2>
+    <p>
+      This sketch creates a scribbled typography interaction. As the mouse moves across the canvas, letters from the word “SCRIBBLED” are stamped one by one, leaving messy hand-drawn traces.
+    </p>
+    <div id="scribbled-container"></div>
+ 
+    <h2>SONIC</h2>
+    <p>
+      This sketch visualizes the word “SONIC” as a dynamic wave. The letters react to the mouse position, stretching and distorting as a scanning line moves across them.
+    </p>
+    <div id="sonic-container"></div>
 
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/e7XVW8SrW" target="_blank" rel="noopener noreferrer">
-        <img src="image\屏幕截图 2026-02-26 120710.png" alt="Project 8 sketch 3 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/Qey4PUcL5" target="_blank" rel="noopener noreferrer">
-        <img src="image\屏幕截图 2026-02-26 120757.png" alt="Project 8 sketch 4 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/VBJmJSXoC" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 120836.png" alt="Project 8 sketch 5 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/4psbsbHnz" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 120925.png" alt="Project 8 sketch 6 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/Ws3-zZsdV" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 120952.png" alt="Project 8 sketch 7 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/yNRIYMcRA" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 121105.png" alt="Project 8 sketch 8 preview" loading="lazy">
-      </a>
-
-      <a class="img-cell" href="https://editor.p5js.org/1503332911st/full/ZWmDRBjuB" target="_blank" rel="noopener noreferrer">
-        <img src="image/屏幕截图 2026-02-26 121206.png" alt="Project 8 sketch 9 preview" loading="lazy">
-      </a>
-    </div>
+    <h2>BALLS</h2>
+    <p>
+      This project is an interactive billiards-inspired sketch. The user can click and drag to hit letter balls across the table. The letters move with friction, bounce off the walls, and collide with each other, creating a playful word-based physics interaction.
+    </p>
   </main>
 
-  <script src="cursorFX.js"></script>
+  <script src="project8.js"></script>
 </body>
 </html>
