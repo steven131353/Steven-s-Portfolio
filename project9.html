@@ -34,6 +34,54 @@
     <p>
       This interactive camera sketch uses face tracking and image effects to shift the webcam image through pixelation, color temperature, brightness, drift, and shake.
     </p>
+
+    <section class="project-writeup" aria-label="Project documentation">
+      <div class="writeup-grid">
+        <div>
+          <h2>Project Description</h2>
+          <p>
+            Experimental Camera is an interactive webcam project that turns a live camera feed into an emotional image filter. Instead of treating the camera as a neutral recording tool, the sketch makes the image unstable, warm, cold, bright, distorted, or shaky based on user controls and face-tracking data.
+          </p>
+          <p>
+            The viewer can adjust pixelation, heat, cold, brightness, drift, and shake. The sketch also uses face width as a distance signal: when the user moves closer to the camera, the image becomes blurrier and more abstract. This makes the camera feel like it is reacting to the user's physical presence.
+          </p>
+        </div>
+
+        <aside class="project-facts" aria-label="Project facts">
+          <div>
+            <span>Tools</span>
+            <strong>p5.js, ml5.js, FaceMesh, webcam input</strong>
+          </div>
+          <div>
+            <span>Interaction</span>
+            <strong>Sliders, movement toward camera, live video</strong>
+          </div>
+          <div>
+            <span>Focus</span>
+            <strong>Emotion, distortion, perception, self-image</strong>
+          </div>
+        </aside>
+      </div>
+
+      <h2>Design Process</h2>
+      <p>
+        I started by thinking about how a camera can change the way we understand ourselves. A normal webcam usually tries to show a clear and realistic image, but I wanted this project to behave more like a mood or memory. The first step was building a direct video feed, then adding sliders so the user could manually control the visual effects.
+      </p>
+      <p>
+        After that, I added face tracking with ml5 FaceMesh. I used the detected face width to estimate how close the viewer is to the camera. This became an automatic input that changes the pixelation level. The closer the viewer gets, the less stable and clear the image becomes. This connects the interaction to the body, not just to interface controls.
+      </p>
+      <p>
+        The final design combines manual control and automatic response. The sliders give the user agency, while the face distance creates a feeling that the camera is watching back and interpreting the user.
+      </p>
+
+      <h2>Reflection</h2>
+      <p>
+        This project helped me understand how code can make a familiar tool feel unfamiliar. A webcam is usually practical and direct, but small changes in color, resolution, movement, and responsiveness can make it feel emotional or unstable. The most important part of the project was learning how interaction can come from both the user's choices and the user's physical relationship to the screen.
+      </p>
+      <p>
+        If I continued developing this project, I would improve the interface design, add more visual modes, and connect the emotional effects to facial expression or sound. I would also make the canvas more responsive so it can work better across different screen sizes.
+      </p>
+    </section>
   </main>
 
   <script src="project9.js"></script>

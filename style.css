@@ -133,6 +133,52 @@ iframe {
   background: #000;
 }
 
+/* ========== Project Documentation ========== */
+.project-writeup {
+  margin-top: 42px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-writeup p {
+  max-width: 76ch;
+}
+
+.writeup-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 42px;
+  align-items: start;
+}
+
+.project-facts {
+  margin-top: 42px;
+  display: grid;
+  gap: 10px;
+}
+
+.project-facts div {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.project-facts span {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-facts strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 /* ========== Cursor FX ========== */
 .cursor-fx {
   position: fixed;
@@ -339,6 +385,13 @@ iframe {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .hero-tile{ min-height: 82px; }
+  .writeup-grid{
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .project-facts{
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 820px){
