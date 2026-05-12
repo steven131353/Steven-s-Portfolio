@@ -1,121 +1,279 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Should I Eat for Lunch Today?</title>
+* {
+  box-sizing: border-box;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="quizStyle.css" />
-</head>
+html {
+  scroll-behavior: smooth;
+}
 
-<body>
-  <main class="quiz-container">
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 166, 0, 0.22), transparent 28%),
+    linear-gradient(135deg, #07131f 0%, #0c0c0f 48%, #20130a 100%);
+  color: #ffffff;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
 
-    <h1>What Should I Eat for Lunch Today?</h1>
-    <p class="intro">A highly scientific lunch quiz.</p>
+body.hero-tracer {
+  background: linear-gradient(135deg, #211507 0%, #111827 45%, #2f2106 100%);
+}
 
-    <!-- QUIZ FORM -->
-    <form id="lunchQuiz">
+body.hero-reinhardt {
+  background: linear-gradient(135deg, #12171f 0%, #0d1117 48%, #2a2f3a 100%);
+}
 
-      <!-- QUESTION 1 -->
-      <section class="question-block">
-        <h2>1. How hungry are you?</h2>
+body.hero-mercy {
+  background: linear-gradient(135deg, #1c1710 0%, #16181f 52%, #443112 100%);
+}
 
-        <label for="hunger">Drag the slider:</label>
+body.hero-sombra {
+  background: linear-gradient(135deg, #140b22 0%, #090a10 50%, #311752 100%);
+}
 
-        <input
-          type="range"
-          id="hunger"
-          name="hunger"
-          min="1"
-          max="10"
-          value="5"
-        />
+body.hero-widowmaker {
+  background: linear-gradient(135deg, #08101d 0%, #0b0b12 45%, #231040 100%);
+}
 
-        <div class="slider-labels">
-          <span>No appetite</span>
-          <span id="hungerValue">5</span>
-          <span>So hungry I could eat a horse</span>
-        </div>
-      </section>
+body.hero-lucio {
+  background: linear-gradient(135deg, #071b14 0%, #0d1117 45%, #18380d 100%);
+}
 
-      <!-- QUESTION 2 -->
-      <section class="question-block">
-        <h2>2. What’s the fit?</h2>
+body.hero-dva {
+  background: linear-gradient(135deg, #1d0a1b 0%, #0d1117 45%, #062646 100%);
+}
 
-        <div class="options">
-          <label>
-            <input type="radio" name="fit" value="pajamas" required />
-            Pajamas
-          </label>
+body.hero-genji {
+  background: linear-gradient(135deg, #071710 0%, #0d1117 48%, #1c3b22 100%);
+}
 
-          <label>
-            <input type="radio" name="fit" value="athleisure" />
-            Athleisure
-          </label>
+.quiz-container {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 36px 0 80px;
+}
 
-          <label>
-            <input type="radio" name="fit" value="dolledup" />
-            I’m all dolled up
-          </label>
+.quiz-nav {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 56px;
+}
 
-          <label>
-            <input type="radio" name="fit" value="embarrassed" />
-            I’m embarrassed by my outfit choice tbh
-          </label>
-        </div>
-      </section>
+.quiz-nav a {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
-      <!-- QUESTION 3 -->
-      <section class="question-block">
-        <h2>3. Pick an image that describes the vibe of your hunger</h2>
+.quiz-nav a:hover {
+  color: #ffffff;
+}
 
-        <div class="image-options">
+.quiz-hero {
+  max-width: 860px;
+  margin-bottom: 34px;
+}
 
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img1" required />
-            <img src="LunchOptions/Img_1.jpg" alt="Vibe 1" />
-          </label>
+.eyebrow {
+  margin: 0 0 10px;
+  color: #f5a623;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
 
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img2" />
-            <img src="LunchOptions/Img_2.jpg" alt="Vibe 2" />
-          </label>
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(44px, 8vw, 86px);
+  line-height: 0.95;
+}
 
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img3" />
-            <img src="LunchOptions/Img_3.jpg" alt="Vibe 3" />
-          </label>
+.intro {
+  max-width: 70ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 18px;
+  line-height: 1.65;
+}
 
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img4" />
-            <img src="LunchOptions/Img_4.jpg" alt="Vibe 4" />
-          </label>
+.last-result {
+  display: inline-flex;
+  margin-top: 22px;
+  padding: 10px 12px;
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  color: #ffd166;
+  background: rgba(0, 0, 0, 0.24);
+}
 
-        </div>
-      </section>
+.quiz-form {
+  display: grid;
+  gap: 16px;
+}
 
-      <!-- SUBMIT BUTTON -->
-      <button type="submit">Reveal My Lunch</button>
+.question-block,
+.result {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(8, 10, 14, 0.68);
+}
 
-    </form>
+.question-block h2,
+.result h2 {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 18px;
+}
 
-    <!-- RESULT SECTION -->
-    <section id="result" class="result hidden">
-      <h2 id="resultTitle"></h2>
-      <img id="resultImage" src="" alt="" />
-      <p id="resultText"></p>
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
 
-      <button id="restartBtn" type="button">Take it again</button>
-    </section>
+.options.compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-  </main>
+label {
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.45;
+}
 
-  <!-- JAVASCRIPT -->
-  <script src="quizScript.js"></script>
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
 
-</body>
-</html>
+.options label:hover {
+  border-color: rgba(245, 166, 35, 0.55);
+}
 
+input[type="radio"] {
+  accent-color: #f5a623;
+}
 
+select,
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: #10141b;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+input[type="range"] {
+  margin-top: 14px;
+  accent-color: #f5a623;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+
+button {
+  justify-self: start;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 6px;
+  background: #f5a623;
+  color: #111111;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #ffd166;
+}
+
+.result {
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.85), rgba(70, 130, 255, 0.85));
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+#resultRole {
+  color: #ffd166;
+  font-weight: 700;
+}
+
+#resultText {
+  max-width: 66ch;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.answer-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.answer-summary strong,
+.answer-summary span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .quiz-container {
+    width: min(100% - 28px, 980px);
+    padding-top: 24px;
+  }
+
+  .quiz-nav {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .options,
+  .options.compact {
+    grid-template-columns: 1fr;
+  }
+}

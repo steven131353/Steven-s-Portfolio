@@ -3,119 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Should I Eat for Lunch Today?</title>
-
-  <!-- CSS -->
+  <title>Who Are You in the Overwatch World?</title>
   <link rel="stylesheet" href="quizStyle.css" />
 </head>
 
 <body>
   <main class="quiz-container">
+    <nav class="quiz-nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../extra.html">Extra</a>
+    </nav>
 
-    <h1>What Should I Eat for Lunch Today?</h1>
-    <p class="intro">A highly scientific lunch quiz.</p>
+    <header class="quiz-hero">
+      <p class="eyebrow">Project 4 Quiz</p>
+      <h1>Who Are You in the Overwatch World?</h1>
+      <p class="intro">
+        A personality quiz about values, memory, belonging, and the kind of future
+        you would help shape if you lived inside the Overwatch universe.
+      </p>
+      <div id="lastResult" class="last-result hidden"></div>
+    </header>
 
-    <!-- QUIZ FORM -->
-    <form id="lunchQuiz">
-
-      <!-- QUESTION 1 -->
+    <form id="overwatchQuiz" class="quiz-form">
       <section class="question-block">
-        <h2>1. How hungry are you?</h2>
-
-        <label for="hunger">Drag the slider:</label>
-
-        <input
-          type="range"
-          id="hunger"
-          name="hunger"
-          min="1"
-          max="10"
-          value="5"
-        />
-
-        <div class="slider-labels">
-          <span>No appetite</span>
-          <span id="hungerValue">5</span>
-          <span>So hungry I could eat a horse</span>
-        </div>
-      </section>
-
-      <!-- QUESTION 2 -->
-      <section class="question-block">
-        <h2>2. What’s the fit?</h2>
-
+        <h2>1. What kind of calling would pull you into the Overwatch world?</h2>
         <div class="options">
-          <label>
-            <input type="radio" name="fit" value="pajamas" required />
-            Pajamas
-          </label>
-
-          <label>
-            <input type="radio" name="fit" value="athleisure" />
-            Athleisure
-          </label>
-
-          <label>
-            <input type="radio" name="fit" value="dolledup" />
-            I’m all dolled up
-          </label>
-
-          <label>
-            <input type="radio" name="fit" value="embarrassed" />
-            I’m embarrassed by my outfit choice tbh
-          </label>
+          <label><input type="radio" name="calling" value="restore" required /> Restoring hope after the world has been damaged</label>
+          <label><input type="radio" name="calling" value="protect" /> Protecting people who cannot protect themselves</label>
+          <label><input type="radio" name="calling" value="truth" /> Exposing hidden systems and buried secrets</label>
+          <label><input type="radio" name="calling" value="reinvent" /> Reinventing yourself after a painful past</label>
         </div>
       </section>
 
-      <!-- QUESTION 3 -->
       <section class="question-block">
-        <h2>3. Pick an image that describes the vibe of your hunger</h2>
-
-        <div class="image-options">
-
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img1" required />
-            <img src="LunchOptions/Img_1.jpg" alt="Vibe 1" />
-          </label>
-
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img2" />
-            <img src="LunchOptions/Img_2.jpg" alt="Vibe 2" />
-          </label>
-
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img3" />
-            <img src="LunchOptions/Img_3.jpg" alt="Vibe 3" />
-          </label>
-
-          <label class="image-card">
-            <input type="radio" name="vibe" value="img4" />
-            <img src="LunchOptions/Img_4.jpg" alt="Vibe 4" />
-          </label>
-
+        <h2>2. Where would you feel most alive?</h2>
+        <div class="options">
+          <label><input type="radio" name="home" value="city" required /> A bright city full of movement, music, and strangers</label>
+          <label><input type="radio" name="home" value="lab" /> A lab, workshop, clinic, or research station</label>
+          <label><input type="radio" name="home" value="frontier" /> A borderland where people rebuild from almost nothing</label>
+          <label><input type="radio" name="home" value="shadow" /> Somewhere quiet, hidden, and full of information</label>
         </div>
       </section>
 
-      <!-- SUBMIT BUTTON -->
-      <button type="submit">Reveal My Lunch</button>
+      <section class="question-block">
+        <h2>3. What role would you take in a community under pressure?</h2>
+        <select id="communityRole" name="communityRole" required>
+          <option value="">Choose one</option>
+          <option value="guardian">The guardian who stands between danger and others</option>
+          <option value="healer">The healer who keeps people from falling apart</option>
+          <option value="messenger">The messenger who keeps hope moving</option>
+          <option value="strategist">The strategist who understands the larger pattern</option>
+        </select>
+      </section>
 
+      <section class="question-block">
+        <h2>4. How strongly do you believe people can change?</h2>
+        <label for="change">Drag the slider:</label>
+        <input type="range" id="change" name="change" min="1" max="10" value="5" />
+        <div class="slider-labels">
+          <span>Some wounds stay</span>
+          <span id="changeValue">5</span>
+          <span>Everyone can become new</span>
+        </div>
+      </section>
+
+      <section class="question-block">
+        <h2>5. When the world becomes unstable, what do you reach for first?</h2>
+        <div class="options">
+          <label><input type="radio" name="crisis" value="courage" required /> Courage, even if I am scared</label>
+          <label><input type="radio" name="crisis" value="care" /> Care, because people panic when they feel alone</label>
+          <label><input type="radio" name="crisis" value="knowledge" /> Knowledge, because the truth changes the map</label>
+          <label><input type="radio" name="crisis" value="control" /> Control, because chaos needs discipline</label>
+        </div>
+      </section>
+
+      <section class="question-block">
+        <h2>6. Which personal struggle feels most familiar?</h2>
+        <div class="options">
+          <label><input type="radio" name="struggle" value="belonging" required /> Wanting to belong without losing yourself</label>
+          <label><input type="radio" name="struggle" value="guilt" /> Carrying guilt and trying to make it useful</label>
+          <label><input type="radio" name="struggle" value="identity" /> Rebuilding your identity after change</label>
+          <label><input type="radio" name="struggle" value="trust" /> Deciding who deserves your trust</label>
+        </div>
+      </section>
+
+      <section class="question-block">
+        <h2>7. Choose the word that feels closest to your core.</h2>
+        <div class="options compact">
+          <label><input type="radio" name="core" value="hope" required /> Hope</label>
+          <label><input type="radio" name="core" value="honor" /> Honor</label>
+          <label><input type="radio" name="core" value="curiosity" /> Curiosity</label>
+          <label><input type="radio" name="core" value="freedom" /> Freedom</label>
+          <label><input type="radio" name="core" value="discipline" /> Discipline</label>
+          <label><input type="radio" name="core" value="joy" /> Joy</label>
+        </div>
+      </section>
+
+      <section class="question-block">
+        <h2>8. What future would you want to help build?</h2>
+        <div class="options">
+          <label><input type="radio" name="future" value="peace" required /> A peaceful future where people heal together</label>
+          <label><input type="radio" name="future" value="justice" /> A just future where the powerful are accountable</label>
+          <label><input type="radio" name="future" value="innovation" /> A brilliant future shaped by science and imagination</label>
+          <label><input type="radio" name="future" value="liberation" /> A freer future where no one is owned or controlled</label>
+        </div>
+      </section>
+
+      <button type="submit">Reveal My Hero</button>
     </form>
 
-    <!-- RESULT SECTION -->
-    <section id="result" class="result hidden">
+    <section id="result" class="result hidden" aria-live="polite">
+      <p class="eyebrow">Your Overwatch character is</p>
+      <div id="heroBadge" class="hero-badge"></div>
       <h2 id="resultTitle"></h2>
-      <img id="resultImage" src="" alt="" />
+      <p id="resultRole"></p>
       <p id="resultText"></p>
-
+      <div id="answerSummary" class="answer-summary"></div>
       <button id="restartBtn" type="button">Take it again</button>
     </section>
-
   </main>
 
-  <!-- JAVASCRIPT -->
   <script src="quizScript.js"></script>
-
 </body>
 </html>
-
-
