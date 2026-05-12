@@ -1,0 +1,39 @@
+{
+  "paths": [
+    {
+      "id": "procrastination",
+      "title": "You ruin your life by procrastinating everything.",
+      "keywords": ["late", "tired", "sleep", "tomorrow", "deadline"],
+      "explanation": "You keep saying you will do it later. Later becomes next week. Next week becomes your personality.",
+      "advice": "Try doing one task today. Terrifying, I know."
+    },
+    {
+      "id": "obsession",
+      "title": "You ruin your life by obsessing over one thing.",
+      "keywords": ["perfect", "control", "focus", "overthink", "again"],
+      "explanation": "You care so much about one thing that everything else quietly collapses in the background.",
+      "advice": "Maybe touch grass before refreshing the same page again."
+    },
+    {
+      "id": "wrongPeople",
+      "title": "You ruin your life by trusting the wrong people.",
+      "keywords": ["friend", "love", "trust", "people", "relationship"],
+      "explanation": "You keep giving dramatic side characters main character access to your life.",
+      "advice": "Read the red flags. They are not decoration."
+    },
+    {
+      "id": "nothing",
+      "title": "You ruin your life by doing nothing at all.",
+      "keywords": ["nothing", "bored", "empty", "idk", "wait"],
+      "explanation": "Your biggest enemy is not failure. It is waiting so long that failure gets bored and leaves.",
+      "advice": "Make one bad decision. At least it is movement."
+    }
+  ],
+  "glitches": [
+    "The oracle is disappointed.",
+    "Your future has poor time management.",
+    "A mysterious error has entered your destiny.",
+    "This prediction is legally not responsible for your choices.",
+    "Your life file has been corrupted."
+  ]
+}

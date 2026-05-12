@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Divination - My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="extra.html">Extra</a></li>
+      </ul>
+    </nav>
+
+    <h1>Digital Divination</h1>
+    <p>How Will You Ruin Your Life?</p>
+
+    <h2>p5.js Sketch</h2>
+    <div id="sketch-container"></div>
+
+    <section class="project-writeup">
+      <h2>Description / Concept</h2>
+      <p>
+        Digital Divination is an interactive p5.js quiz that turns everyday habits into a chaotic fortune-telling experience. The project is designed for students and young creatives who often joke about deadlines, overthinking, burnout, and bad decisions. Instead of giving serious life advice, the quiz uses humor, glitch visuals, and exaggerated "oracle" language to make self-reflection feel playful.
+      </p>
+      <p>
+        The user answers three open-ended questions. After the final answer, the sketch enters a fake ritual/loading state, then generates a personalized result about how the user might "ruin their life." The tone is intentionally dramatic and sarcastic, but the interaction is really about noticing patterns in daily behavior.
+      </p>
+
+      <h2>System Logic</h2>
+      <p>
+        The quiz stores each typed response in an answers array. When all questions are finished, the sketch compares the user's words with keyword groups stored in <strong>fortunes.json</strong>. Each possible result receives a score based on keyword matches. The highest-scoring path becomes the main fortune, with a small random chance of choosing another path to keep the oracle feeling unstable.
+      </p>
+      <p>
+        The result screen combines three sources: the matched fortune from the local JSON file, a random system glitch message, and one random cat omen from an external data source. The typewriter effect reveals the result one character at a time so the final page feels like a corrupted prediction being printed by the system.
+      </p>
+
+      <h2>API / Data Used</h2>
+      <p>
+        Local quiz result data:
+        <a href="fortunes.json">fortunes.json</a>
+      </p>
+      <p>
+        External API/data source:
+        <a href="https://raw.githubusercontent.com/dariusk/corpora/master/data/animals/cats.json" target="_blank" rel="noopener">
+          Corpora Project cats JSON
+        </a>
+      </p>
+
+      <h2>Design Process</h2>
+      <p>
+        I started with a white-box structure: intro screen, question screen, ritual/loading screen, and final result screen. The first key decision was to use typed input instead of multiple choice, because open answers make the quiz feel more personal and unpredictable. I then connected those answers to simple keyword scoring so the result could still respond to what the user wrote.
+      </p>
+      <p>
+        The second key decision was the visual style. I used a black-and-red glitch interface, shaking text, random symbols, scan lines, and loading bars to make the quiz feel like a broken digital oracle. For the next version, I would add more questions, more result paths, and a clearer way to show users how their answers influenced the final prediction.
+      </p>
+    </section>
+  </main>
+
+  <script src="project10.js"></script>
+</body>
+</html>
