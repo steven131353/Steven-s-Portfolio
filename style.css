@@ -286,11 +286,11 @@ iframe {
 
 .hero-object-wrap{
   position: absolute;
-  top: 10px;
-  right: -68px;
+  top: 0;
+  right: -145px;
   z-index: 1;
-  width: min(65vw, 720px);
-  height: 380px;
+  width: min(70vw, 1090px);
+  height: 560px;
   pointer-events: none;
 }
 
@@ -298,18 +298,18 @@ iframe {
   position: absolute;
   top: 90px;
   right: 10px;
-  width: 86%;
-  height: 250px;
+  width: 72%;
+  height: 350px;
   border: 3px solid #ffffff;
 }
 
 .hero-object{
   position: absolute;
-  top: 38px;
-  right: 24px;
-  width: 100%;
+  top: -30px;
+  right: -180px;
+  width: 112%;
   height: auto;
-  max-height: 380px;
+  max-height: none;
   object-fit: contain;
   filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45));
 }
@@ -378,6 +378,12 @@ iframe {
     top: 24px;
     right: -90px;
     width: 88vw;
+  }
+  .hero-object{
+    top: 38px;
+    right: 24px;
+    width: 100%;
+    max-height: 380px;
   }
   .hero-copy{ bottom: 118px; }
   .hero-title{ font-size: clamp(56px, 16vw, 82px); }
