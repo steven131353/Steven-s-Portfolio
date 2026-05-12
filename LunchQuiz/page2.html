@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overwatch World Quiz - Page 2</title>
+  <link rel="stylesheet" href="quizStyle.css" />
+</head>
+
+<body>
+  <main class="quiz-container">
+    <nav class="quiz-nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../extra.html">Extra</a>
+    </nav>
+
+    <header class="quiz-hero compact-hero">
+      <p class="eyebrow">Project 4 Quiz</p>
+      <h1>Community & Change</h1>
+      <p class="intro">Now the quiz moves from setting into what kind of person you become around other people.</p>
+    </header>
+
+    <p class="progress">Page 2 of 4</p>
+
+    <form id="overwatchQuiz" class="quiz-form" data-next="page3.html">
+      <section class="question-block">
+        <h2>3. What role would you take in a community under pressure?</h2>
+        <select id="communityRole" name="communityRole" required>
+          <option value="">Choose one</option>
+          <option value="guardian">The guardian who stands between danger and others</option>
+          <option value="healer">The healer who keeps people from falling apart</option>
+          <option value="messenger">The messenger who keeps hope moving</option>
+          <option value="strategist">The strategist who understands the larger pattern</option>
+        </select>
+      </section>
+
+      <section class="question-block">
+        <h2>4. How strongly do you believe people can change?</h2>
+        <label for="change">Drag the slider:</label>
+        <input type="range" id="change" name="change" min="1" max="10" value="5" />
+        <div class="slider-labels">
+          <span>Some wounds stay</span>
+          <span id="changeValue">5</span>
+          <span>Everyone can become new</span>
+        </div>
+      </section>
+
+      <div class="page-actions">
+        <a class="secondary-button" href="Lunch.html">Back</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="quizScript.js"></script>
+</body>
+</html>

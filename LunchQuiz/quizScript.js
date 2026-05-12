@@ -1,3 +1,6 @@
+const STORAGE_KEY = "overwatchLoreQuizAnswers";
+const RESULT_KEY = "overwatchLoreQuizResult";
+
 const quizForm = document.getElementById("overwatchQuiz");
 const changeSlider = document.getElementById("change");
 const changeValue = document.getElementById("changeValue");
@@ -9,9 +12,6 @@ const heroBadge = document.getElementById("heroBadge");
 const answerSummary = document.getElementById("answerSummary");
 const restartBtn = document.getElementById("restartBtn");
 const lastResult = document.getElementById("lastResult");
-
-const STORAGE_KEY = "overwatchLoreQuizAnswers";
-const RESULT_KEY = "overwatchLoreQuizResult";
 
 const heroes = {
   tracer: {
@@ -127,45 +127,115 @@ const scoring = {
   }
 };
 
-changeSlider.addEventListener("input", () => {
-  changeValue.textContent = changeSlider.value;
-});
+initSavedResultTheme();
+initQuizPage();
+initResultPage();
 
-window.addEventListener("DOMContentLoaded", () => {
+function initSavedResultTheme() {
   const savedResult = localStorage.getItem(RESULT_KEY);
+
   if (savedResult && heroes[savedResult]) {
-    lastResult.textContent = `Last time, you connected with ${heroes[savedResult].name}.`;
-    lastResult.classList.remove("hidden");
     document.body.className = heroes[savedResult].className;
+
+    if (lastResult) {
+      lastResult.textContent = `Last time, you connected with ${heroes[savedResult].name}.`;
+      lastResult.classList.remove("hidden");
+    }
   }
-});
+}
 
-quizForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+function initQuizPage() {
+  if (!quizForm) return;
 
-  const answers = Object.fromEntries(new FormData(quizForm).entries());
-  answers.change = changeSlider.value;
+  restoreAnswers();
 
-  const heroKey = getHeroResult(answers);
+  if (changeSlider && changeValue) {
+    changeValue.textContent = changeSlider.value;
+    changeSlider.addEventListener("input", () => {
+      changeValue.textContent = changeSlider.value;
+    });
+  }
+
+  quizForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const answers = getStoredAnswers();
+    const pageAnswers = Object.fromEntries(new FormData(quizForm).entries());
+    const nextAnswers = { ...answers, ...pageAnswers };
+
+    if (changeSlider) {
+      nextAnswers.change = changeSlider.value;
+    }
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextAnswers));
+
+    if (quizForm.dataset.final === "true") {
+      const heroKey = getHeroResult(nextAnswers);
+      localStorage.setItem(RESULT_KEY, heroKey);
+      window.location.href = "result.html";
+      return;
+    }
+
+    window.location.href = quizForm.dataset.next || "Lunch.html";
+  });
+}
+
+function initResultPage() {
+  if (!resultSection || quizForm) return;
+
+  const answers = getStoredAnswers();
+  const hasEnoughAnswers = ["calling", "home", "communityRole", "change", "crisis", "struggle", "core", "future"]
+    .every((key) => answers[key]);
+
+  if (!hasEnoughAnswers) {
+    window.location.href = "Lunch.html";
+    return;
+  }
+
+  const heroKey = localStorage.getItem(RESULT_KEY) || getHeroResult(answers);
   const hero = heroes[heroKey];
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+  if (!hero) {
+    window.location.href = "Lunch.html";
+    return;
+  }
+
   localStorage.setItem(RESULT_KEY, heroKey);
-
   showResult(hero, answers);
-});
 
-restartBtn.addEventListener("click", () => {
-  quizForm.reset();
-  changeSlider.value = 5;
-  changeValue.textContent = "5";
-  resultSection.classList.add("hidden");
-  localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(RESULT_KEY);
-  lastResult.classList.add("hidden");
-  document.body.className = "";
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(RESULT_KEY);
+      window.location.href = "Lunch.html";
+    });
+  }
+}
+
+function getStoredAnswers() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function restoreAnswers() {
+  const answers = getStoredAnswers();
+
+  Object.entries(answers).forEach(([name, value]) => {
+    const field = quizForm.elements[name];
+    if (!field) return;
+
+    if (field instanceof RadioNodeList) {
+      const radio = Array.from(field).find((input) => input.value === value);
+      if (radio) radio.checked = true;
+      return;
+    }
+
+    field.value = value;
+  });
+}
 
 function getHeroResult(answers) {
   const scores = {};
@@ -214,7 +284,4 @@ function showResult(hero, answers) {
     <span>change: ${answers.change}/10</span>
     <span>core: ${answers.core}</span>
   `;
-
-  resultSection.classList.remove("hidden");
-  resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }

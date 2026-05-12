@@ -22,10 +22,16 @@
         A personality quiz about values, memory, belonging, and the kind of future
         you would help shape if you lived inside the Overwatch universe.
       </p>
+      <p class="community-note">
+        Made for Overwatch fans who connect with the characters through lore,
+        animated shorts, and personal backstory rather than only gameplay.
+      </p>
       <div id="lastResult" class="last-result hidden"></div>
     </header>
 
-    <form id="overwatchQuiz" class="quiz-form">
+    <p class="progress">Page 1 of 4</p>
+
+    <form id="overwatchQuiz" class="quiz-form" data-next="page2.html">
       <section class="question-block">
         <h2>1. What kind of calling would pull you into the Overwatch world?</h2>
         <div class="options">
@@ -46,82 +52,10 @@
         </div>
       </section>
 
-      <section class="question-block">
-        <h2>3. What role would you take in a community under pressure?</h2>
-        <select id="communityRole" name="communityRole" required>
-          <option value="">Choose one</option>
-          <option value="guardian">The guardian who stands between danger and others</option>
-          <option value="healer">The healer who keeps people from falling apart</option>
-          <option value="messenger">The messenger who keeps hope moving</option>
-          <option value="strategist">The strategist who understands the larger pattern</option>
-        </select>
-      </section>
-
-      <section class="question-block">
-        <h2>4. How strongly do you believe people can change?</h2>
-        <label for="change">Drag the slider:</label>
-        <input type="range" id="change" name="change" min="1" max="10" value="5" />
-        <div class="slider-labels">
-          <span>Some wounds stay</span>
-          <span id="changeValue">5</span>
-          <span>Everyone can become new</span>
-        </div>
-      </section>
-
-      <section class="question-block">
-        <h2>5. When the world becomes unstable, what do you reach for first?</h2>
-        <div class="options">
-          <label><input type="radio" name="crisis" value="courage" required /> Courage, even if I am scared</label>
-          <label><input type="radio" name="crisis" value="care" /> Care, because people panic when they feel alone</label>
-          <label><input type="radio" name="crisis" value="knowledge" /> Knowledge, because the truth changes the map</label>
-          <label><input type="radio" name="crisis" value="control" /> Control, because chaos needs discipline</label>
-        </div>
-      </section>
-
-      <section class="question-block">
-        <h2>6. Which personal struggle feels most familiar?</h2>
-        <div class="options">
-          <label><input type="radio" name="struggle" value="belonging" required /> Wanting to belong without losing yourself</label>
-          <label><input type="radio" name="struggle" value="guilt" /> Carrying guilt and trying to make it useful</label>
-          <label><input type="radio" name="struggle" value="identity" /> Rebuilding your identity after change</label>
-          <label><input type="radio" name="struggle" value="trust" /> Deciding who deserves your trust</label>
-        </div>
-      </section>
-
-      <section class="question-block">
-        <h2>7. Choose the word that feels closest to your core.</h2>
-        <div class="options compact">
-          <label><input type="radio" name="core" value="hope" required /> Hope</label>
-          <label><input type="radio" name="core" value="honor" /> Honor</label>
-          <label><input type="radio" name="core" value="curiosity" /> Curiosity</label>
-          <label><input type="radio" name="core" value="freedom" /> Freedom</label>
-          <label><input type="radio" name="core" value="discipline" /> Discipline</label>
-          <label><input type="radio" name="core" value="joy" /> Joy</label>
-        </div>
-      </section>
-
-      <section class="question-block">
-        <h2>8. What future would you want to help build?</h2>
-        <div class="options">
-          <label><input type="radio" name="future" value="peace" required /> A peaceful future where people heal together</label>
-          <label><input type="radio" name="future" value="justice" /> A just future where the powerful are accountable</label>
-          <label><input type="radio" name="future" value="innovation" /> A brilliant future shaped by science and imagination</label>
-          <label><input type="radio" name="future" value="liberation" /> A freer future where no one is owned or controlled</label>
-        </div>
-      </section>
-
-      <button type="submit">Reveal My Hero</button>
+      <div class="page-actions">
+        <button type="submit">Next</button>
+      </div>
     </form>
-
-    <section id="result" class="result hidden" aria-live="polite">
-      <p class="eyebrow">Your Overwatch character is</p>
-      <div id="heroBadge" class="hero-badge"></div>
-      <h2 id="resultTitle"></h2>
-      <p id="resultRole"></p>
-      <p id="resultText"></p>
-      <div id="answerSummary" class="answer-summary"></div>
-      <button id="restartBtn" type="button">Take it again</button>
-    </section>
   </main>
 
   <script src="quizScript.js"></script>

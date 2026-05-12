@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overwatch World Quiz - Page 3</title>
+  <link rel="stylesheet" href="quizStyle.css" />
+</head>
+
+<body>
+  <main class="quiz-container">
+    <nav class="quiz-nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../extra.html">Extra</a>
+    </nav>
+
+    <header class="quiz-hero compact-hero">
+      <p class="eyebrow">Project 4 Quiz</p>
+      <h1>Crisis & Identity</h1>
+      <p class="intro">This page asks how you respond when the world becomes unstable, and what personal struggle feels familiar.</p>
+    </header>
+
+    <p class="progress">Page 3 of 4</p>
+
+    <form id="overwatchQuiz" class="quiz-form" data-next="page4.html">
+      <section class="question-block">
+        <h2>5. When the world becomes unstable, what do you reach for first?</h2>
+        <div class="options">
+          <label><input type="radio" name="crisis" value="courage" required /> Courage, even if I am scared</label>
+          <label><input type="radio" name="crisis" value="care" /> Care, because people panic when they feel alone</label>
+          <label><input type="radio" name="crisis" value="knowledge" /> Knowledge, because the truth changes the map</label>
+          <label><input type="radio" name="crisis" value="control" /> Control, because chaos needs discipline</label>
+        </div>
+      </section>
+
+      <section class="question-block">
+        <h2>6. Which personal struggle feels most familiar?</h2>
+        <div class="options">
+          <label><input type="radio" name="struggle" value="belonging" required /> Wanting to belong without losing yourself</label>
+          <label><input type="radio" name="struggle" value="guilt" /> Carrying guilt and trying to make it useful</label>
+          <label><input type="radio" name="struggle" value="identity" /> Rebuilding your identity after change</label>
+          <label><input type="radio" name="struggle" value="trust" /> Deciding who deserves your trust</label>
+        </div>
+      </section>
+
+      <div class="page-actions">
+        <a class="secondary-button" href="page2.html">Back</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="quizScript.js"></script>
+</body>
+</html>
