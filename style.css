@@ -187,7 +187,7 @@ iframe {
   flex-direction: column;
   justify-content: flex-end;
   padding-top: 0;
-  padding-bottom: 104px;
+  padding-bottom: clamp(132px, 14vh, 180px);
 }
 
 .hero-kicker{
@@ -317,7 +317,7 @@ h2 a:visited {
 h2 a:hover {
   text-decoration: underline; /* hover 再加效果 */
 }
-.project-row {
+section.project-row {
   display: grid;
   grid-template-columns: 600px 1fr;
   gap: 40px;
