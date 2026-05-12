@@ -185,9 +185,9 @@ iframe {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 8vh;
-  padding-bottom: 90px;
+  justify-content: flex-end;
+  padding-top: 0;
+  padding-bottom: 104px;
 }
 
 .hero-kicker{
