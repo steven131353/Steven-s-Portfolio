@@ -119,7 +119,10 @@ iframe {
   margin-top: 14px;
 }
 
-#sketch-container { margin-top: 14px; }
+#sketch-container {
+  position: relative;
+  margin-top: 14px;
+}
 
 #sketch-container canvas {
   display: block;

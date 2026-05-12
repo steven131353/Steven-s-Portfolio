@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project 9 - My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
 </head>
 
 <body>
@@ -19,19 +21,22 @@
 
     <h1>Experimental Camera</h1>
 
+    <h2>p5.js Sketch</h2>
+    <div id="sketch-container"></div>
+
     <h2>
       <a href="https://editor.p5js.org/1503332911st/sketches/i2LzKZ6-m" target="_blank" rel="noopener noreferrer">
         P5.JS LINK
       </a>
     </h2>
 
-    <iframe
-      src="https://editor.p5js.org/1503332911st/full/i2LzKZ6-m"
-      title="Experimental Camera p5.js sketch"
-      loading="lazy">
-    </iframe>
+    <h2>Description</h2>
+    <p>
+      This interactive camera sketch uses face tracking and image effects to shift the webcam image through pixelation, color temperature, brightness, drift, and shake.
+    </p>
   </main>
 
+  <script src="project9.js"></script>
   <script src="cursorFX.js"></script>
 </body>
 </html>
